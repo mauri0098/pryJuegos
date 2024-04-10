@@ -34,6 +34,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaptionText;
             ClientSize = new Size(700, 700);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmJuegos";

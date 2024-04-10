@@ -16,6 +16,7 @@ namespace pryJuegos
         public PictureBox imgNave;
         public PictureBox imgNaveEnemiga;
         public PictureBox imgNaveEnemiga2;
+        public PictureBox imgNaveEnemiga3;
         public void Crearjuegador()
         {
             vida = 100;
@@ -32,16 +33,21 @@ namespace pryJuegos
             puntosDeDaños = 1;
             imgNaveEnemiga = new PictureBox();
             imgNaveEnemiga.SizeMode = PictureBoxSizeMode.StretchImage;
-            imgNaveEnemiga.ImageLocation = "https://www.anaitgames.com/images/uploads/2016/10/mes_mini/mes-mini-galaga-1.png";
+            imgNaveEnemiga.ImageLocation = "poner foto";
             //Enemigo 2
             vida = 20;
             nombre = "Enemigo2";
             puntosDeDaños = 100;
             imgNaveEnemiga2 = new PictureBox();
             imgNaveEnemiga2.SizeMode = PictureBoxSizeMode.StretchImage;
-            imgNaveEnemiga2.ImageLocation = "https://pixelreal.net/wp-content/uploads/Galaga-enemigo-arana-patrones-hama-beads.png";
-
-
+            imgNaveEnemiga2.ImageLocation = "https://i.gifer.com/MvA.gif";
+            //Enemigo 3
+            vida = 20;
+            nombre = "Enemigo2";
+            puntosDeDaños = 100;
+            imgNaveEnemiga3 = new PictureBox();
+            imgNaveEnemiga3.SizeMode = PictureBoxSizeMode.StretchImage;
+            imgNaveEnemiga3.ImageLocation = "https://i.ytimg.com/vi/xEaqhhjqxLA/maxresdefault.jpg";
 
 
         }
