@@ -59,15 +59,15 @@ namespace pryJuegos
         {
             if (e.KeyCode == Keys.Up) // Si se presiona la tecla de flecha arriba
             {
-                // Mueve la nave 5 píxeles hacia arriba manteniendo su posición Y
+                
                 ObjNavejuegador.imgNave.Location = new Point(ObjNavejuegador.imgNave.Location.X,
-                                                              ObjNavejuegador.imgNave.Location.Y - 5);
+                                                              ObjNavejuegador.imgNave.Location.Y - 5);//es con el y
             }
-            if (e.KeyCode == Keys.Down) // Si se presiona la tecla de flecha abajo
+            if (e.KeyCode == Keys.Down) 
             {
-                // Mueve la nave 5 píxeles hacia abajo manteniendo su posición Y
+               
                 ObjNavejuegador.imgNave.Location = new Point(ObjNavejuegador.imgNave.Location.X,
-                                                              ObjNavejuegador.imgNave.Location.Y + 5);
+                                                              ObjNavejuegador.imgNave.Location.Y + 5);//es con el y
             }
 
 
