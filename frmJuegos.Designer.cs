@@ -42,6 +42,7 @@
             Text = "Juegos";
             Load += frmJuegos_Load;
             KeyDown += frmJuegos_KeyDown;
+            KeyUp += frmJuegos_KeyUp;
             ResumeLayout(false);
         }
 
