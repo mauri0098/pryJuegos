@@ -30,15 +30,14 @@ namespace pryJuegos
 
         private void frmJuegos_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Right) { 
-                
-                ObjNavejuegador.imgNave.Location = new Point(ObjNavejuegador.imgNave.Location.X+5, 
+            if (e.KeyCode == Keys.Right)// Si se presiona la tecla de flecha derecha
+            {                                 
+                ObjNavejuegador.imgNave.Location = new Point(ObjNavejuegador.imgNave.Location.X+5, // Mueve la nave 5 píxeles hacia la derecha
                 ObjNavejuegador.imgNave.Location.Y);   
             }
-            if (e.KeyCode == Keys.Left)
+            if (e.KeyCode == Keys.Left) // Si se presiona la tecla de flecha izquierda
             {
-
-                ObjNavejuegador.imgNave.Location = new Point(ObjNavejuegador.imgNave.Location.X - 5,
+                ObjNavejuegador.imgNave.Location = new Point(ObjNavejuegador.imgNave.Location.X - 5, // Mueve la nave 5 píxeles hacia la izquierda
                 ObjNavejuegador.imgNave.Location.Y);
             }
         }
