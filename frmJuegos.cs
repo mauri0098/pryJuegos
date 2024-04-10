@@ -25,15 +25,15 @@ namespace pryJuegos
             Controls.Add(ObjNavejuegador.imgNave);
 
             ObjNavejuegador.imgNave.Location = new Point(500, 500);
-            //Nave enimiga
-
-            
+            //Nave enimigo
             ObjNavejuegador.CrearEnemigo();
-
             Controls.Add(ObjNavejuegador.imgNaveEnemiga);
-
             ObjNavejuegador.imgNaveEnemiga.Location = new Point(300, 300);
 
+            //Enemigo2
+            ObjNavejuegador.CrearEnemigo();
+            Controls.Add(ObjNavejuegador.imgNaveEnemiga2);
+            ObjNavejuegador.imgNaveEnemiga2.Location = new Point(100, 100);
 
         }
 
