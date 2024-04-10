@@ -14,6 +14,7 @@ namespace pryJuegos
         public string nombre;
          int puntosDeDaños;
         public PictureBox imgNave;
+        public PictureBox imgNaveEnemiga;
         public void Crearjuegador()
         {
             vida = 100;
@@ -29,6 +30,9 @@ namespace pryJuegos
             vida = 30;
             nombre = "Enemigo1";
             puntosDeDaños = 1;
+            imgNaveEnemiga = new PictureBox();
+            imgNaveEnemiga.SizeMode = PictureBoxSizeMode.StretchImage;
+            imgNaveEnemiga.ImageLocation = "https://www.anaitgames.com/images/uploads/2016/10/mes_mini/mes-mini-galaga-1.png";
 
         }
 
