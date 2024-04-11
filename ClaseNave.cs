@@ -24,7 +24,7 @@ namespace pryJuegos
             puntosDeDaños = 1;
             imgNave = new PictureBox();
             imgNave.SizeMode = PictureBoxSizeMode.StretchImage;
-            imgNave.ImageLocation = "https://cdna.artstation.com/p/assets/images/images/017/509/756/large/rutger-slopsema-galaga.jpg?1556264895";  
+            imgNave.ImageLocation = "https://art.pixilart.com/ae81e5e14ff674d.gif";  
         }
         public void CrearEnemigo()
         {
@@ -51,9 +51,7 @@ namespace pryJuegos
 
 
         }
-
-
-
+        
     }
 
 }

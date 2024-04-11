@@ -52,7 +52,7 @@ namespace pryJuegos
 
                 ObjEnemigo.CrearEnemigo();
 
-                int valorX = rnd.Next(0, 400); // Genera una coordenada X aleatoria
+                int valorX = rnd.Next(0, 400); // Genera una coordenada X aleatoria 
                 int valorY = rnd.Next(0, 400); // Genera una coordenada Y aleatoria
 
                 ObjEnemigo.imgNaveEnemiga.Location = new Point(valorX, valorY);
