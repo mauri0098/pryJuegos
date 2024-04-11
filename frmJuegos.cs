@@ -17,6 +17,7 @@ namespace pryJuegos
             InitializeComponent();
         }
         ClaseNave ObjNavejuegador;
+        ClaseNave ObjEnemigo;
         private void frmJuegos_Load(object sender, EventArgs e)
         {
             ObjNavejuegador = new ClaseNave();
@@ -25,6 +26,7 @@ namespace pryJuegos
             Controls.Add(ObjNavejuegador.imgNave);
 
             ObjNavejuegador.imgNave.Location = new Point(500, 500);
+            
             //Enemigo3
             ObjNavejuegador.CrearEnemigo();
             Controls.Add(ObjNavejuegador.imgNaveEnemiga);
@@ -39,6 +41,28 @@ namespace pryJuegos
             ObjNavejuegador.CrearEnemigo();
             Controls.Add(ObjNavejuegador.imgNaveEnemiga3);
             ObjNavejuegador.imgNaveEnemiga3.Location = new Point(400, 400);
+
+            //Para q los enemigos salgan aleatorios
+            int contador = 0;
+            Random rnd = new Random(); // Inicializa el objeto Random fuera del bucle
+
+            while (contador < 5)
+            {
+                ClaseNave ObjEnemigo = new ClaseNave(); // Crea una nueva instancia de ClaseNave
+
+                ObjEnemigo.CrearEnemigo();
+
+                int valorX = rnd.Next(0, 400); // Genera una coordenada X aleatoria
+                int valorY = rnd.Next(0, 400); // Genera una coordenada Y aleatoria
+
+                ObjEnemigo.imgNaveEnemiga.Location = new Point(valorX, valorY);
+                Controls.Add(ObjEnemigo.imgNaveEnemiga); // Añade la imagen del enemigo al formulario
+                contador++;
+            }
+
+
+
+
         }
 
         private void frmJuegos_KeyDown(object sender, KeyEventArgs e)
@@ -73,5 +97,8 @@ namespace pryJuegos
 
 
         }
+
+
+
     }
 }

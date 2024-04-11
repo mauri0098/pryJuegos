@@ -33,7 +33,7 @@ namespace pryJuegos
             puntosDeDaños = 1;
             imgNaveEnemiga = new PictureBox();
             imgNaveEnemiga.SizeMode = PictureBoxSizeMode.StretchImage;
-            imgNaveEnemiga.ImageLocation = "poner foto";
+            imgNaveEnemiga.ImageLocation = "https://i.gifer.com/MvA.gif";
             //Enemigo 2
             vida = 20;
             nombre = "Enemigo2";
