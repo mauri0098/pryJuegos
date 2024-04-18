@@ -53,31 +53,31 @@ namespace pryJuegos
 
             //Para q los enemigos salgan aleatorios
             
-            ObjEnemigo = new ClaseNave();
-           
+            ObjEnemigo = new ClaseNave(); //Inicialización del objeto ObjEnemigo
+
             int posX = 0;
             int posY = 0;   
             int contador = 0;
 
             while (contador < 10) // cantidad de enemigos que se crean 
             {
-                int codigoEnemigo = EnemigosAleatorios.Next(1000, 3000);
-               
-                posX = PosicionX.Next(0, 400);
+                int codigoEnemigo = EnemigosAleatorios.Next(1000, 3000);// Generación de números aleatorios
+
+                posX = PosicionX.Next(0, 400);//la posicion random de donde estan ubicados los enemigos o utilizan para establecer la posición del enemigo en la ventana de juego
                 posY = PosicionY.Next(0, 400);
-                switch (codigoEnemigo)
+                switch (codigoEnemigo)//utilizamos a codigoenemigo y preguntamos si el numero random q genere  es mayor a 2000 crea un enenmigo, si es menor crea otro 
                 {
                     case < 2000:
-                        ObjEnemigo.CrearEnemigo();
-                        ObjEnemigo.imgNaveEnemiga.Location = new Point(posX, posY);
-                        Controls.Add(ObjEnemigo.imgNaveEnemiga);
+                        ObjEnemigo.CrearEnemigo();//creacion de un enemigo 
+                        ObjEnemigo.imgNaveEnemiga.Location = new Point(posX, posY);//estableco la localizacion de la nave 
+                        Controls.Add(ObjEnemigo.imgNaveEnemiga);//pongo la imagen 
                         break;
                     case > 2000:
                         ObjEnemigo.CrearEnemigo();
                         ObjEnemigo.imgNaveEnemiga.Location = new Point(posX, posY);
                         Controls.Add(ObjEnemigo.imgNaveEnemiga2);
                         break;
-                    case < 2500:
+                    case > 1000:
                         ObjEnemigo.CrearEnemigo();
                         ObjEnemigo.imgNaveEnemiga.Location = new Point(posX, posY);
                         Controls.Add(ObjEnemigo.imgNaveEnemiga3);
@@ -88,12 +88,6 @@ namespace pryJuegos
 
                 contador++; // Incrementar el contador para evitar un bucle infinito
             }
-            
-
-
-
-
-
         }
 
         private void frmJuegos_KeyDown(object sender, KeyEventArgs e)
