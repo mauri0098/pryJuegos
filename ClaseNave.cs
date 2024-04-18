@@ -40,7 +40,7 @@ namespace pryJuegos
             puntosDeDaños = 100;
             imgNaveEnemiga2 = new PictureBox();
             imgNaveEnemiga2.SizeMode = PictureBoxSizeMode.StretchImage;
-            imgNaveEnemiga2.ImageLocation = "https://i.gifer.com/MvA.gif";
+            imgNaveEnemiga2.ImageLocation = "https://gifdb.com/images/thumbnail/galaga-boss-1000-hit-wwrjpsiqh7cbi97u.gif";
             //Enemigo 3
             vida = 20;
             nombre = "Enemigo2";
