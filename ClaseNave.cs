@@ -12,11 +12,12 @@ namespace pryJuegos
 
         public int vida;
         public string nombre;
-         int puntosDeDaños;
+        int puntosDeDaños;
         public PictureBox imgNave;
         public PictureBox imgNaveEnemiga;
         public PictureBox imgNaveEnemiga2;
         public PictureBox imgNaveEnemiga3;
+        public PictureBox imgdisparo;
         public void Crearjuegador()
         {
             vida = 100;
@@ -24,7 +25,7 @@ namespace pryJuegos
             puntosDeDaños = 1;
             imgNave = new PictureBox();
             imgNave.SizeMode = PictureBoxSizeMode.StretchImage;
-            imgNave.ImageLocation = "https://art.pixilart.com/ae81e5e14ff674d.gif";  
+            imgNave.ImageLocation = "https://art.pixilart.com/ae81e5e14ff674d.gif";
         }
         public void CrearEnemigo()
         {
@@ -40,10 +41,10 @@ namespace pryJuegos
             puntosDeDaños = 100;
             imgNaveEnemiga2 = new PictureBox();
             imgNaveEnemiga2.SizeMode = PictureBoxSizeMode.StretchImage;
-            imgNaveEnemiga2.ImageLocation = "https://gifdb.com/images/thumbnail/galaga-boss-1000-hit-wwrjpsiqh7cbi97u.gif";
+            imgNaveEnemiga2.ImageLocation = "https://i.gifer.com/origin/cf/cf75a94995efd5a532afe5b4f08f6007_w200.gif";
             //Enemigo 3
             vida = 20;
-            nombre = "Enemigo2";
+            nombre = "Enemigo3";
             puntosDeDaños = 100;
             imgNaveEnemiga3 = new PictureBox();
             imgNaveEnemiga3.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -51,7 +52,15 @@ namespace pryJuegos
 
 
         }
-        
+        public void Disparo()
+        {
+            // Crear y configurar el PictureBox del disparo
+            imgdisparo = new PictureBox();
+            imgdisparo.ImageLocation = "https://e7.pngegg.com/pngimages/410/388/png-clipart-light-muzzle-flash-fire-flame-gun-fire-orange-flame-thumbnail.png";
+            imgdisparo.Size = new Size(20, 20); // Establece el tamaño adecuado
+            imgdisparo.SizeMode = PictureBoxSizeMode.StretchImage; // Ajusta la imagen al tamaño del PictureBox
+
+        }
     }
 
 }

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,10 +22,11 @@ namespace pryJuegos
         }
         ClaseNave ObjNavejuegador;
         ClaseNave ObjEnemigo;
+        ClaseNave Disparo;
 
         Random EnemigosAleatorios = new Random();
         Random PosicionX = new Random();
-        Random PosicionY = new Random();    
+        Random PosicionY = new Random();
         private void frmJuegos_Load(object sender, EventArgs e)
         {
             ObjNavejuegador = new ClaseNave();//inicializo el objnavejugador 
@@ -52,11 +55,12 @@ namespace pryJuegos
             //ObjEnemigo.imgNaveEnemiga3.Location = new Point(400, 400);
 
             //Para q los enemigos salgan aleatorios
-            
+
             ObjEnemigo = new ClaseNave(); //Inicialización del objeto ObjEnemigo
+           
 
             int posX = 0;
-            int posY = 0;   
+            int posY = 0;
             int contador = 0;
 
             while (contador < 10) // cantidad de enemigos que se crean 
@@ -72,14 +76,14 @@ namespace pryJuegos
                         ObjEnemigo.imgNaveEnemiga.Location = new Point(posX, posY);//estableco la localizacion de la nave 
                         Controls.Add(ObjEnemigo.imgNaveEnemiga);//pongo la imagen 
                         break;
-                    case > 2000:
+                    case > 2500:
                         ObjEnemigo.CrearEnemigo();
-                        ObjEnemigo.imgNaveEnemiga.Location = new Point(posX, posY);
+                        ObjEnemigo.imgNaveEnemiga2.Location = new Point(posX, posY);
                         Controls.Add(ObjEnemigo.imgNaveEnemiga2);
                         break;
                     case > 1000:
                         ObjEnemigo.CrearEnemigo();
-                        ObjEnemigo.imgNaveEnemiga.Location = new Point(posX, posY);
+                        ObjEnemigo.imgNaveEnemiga3.Location = new Point(posX, posY);
                         Controls.Add(ObjEnemigo.imgNaveEnemiga3);
                         break;
                     default:
@@ -87,14 +91,16 @@ namespace pryJuegos
                 }
 
                 contador++; // Incrementar el contador para evitar un bucle infinito
+
             }
+
         }
 
         private void frmJuegos_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Right)// Si se presiona la tecla de flecha derecha
             {
-                ObjNavejuegador.imgNave.Location = new Point(ObjEnemigo.imgNave.Location.X + 5, // Mueve la nave 5 píxeles hacia la derecha
+                ObjNavejuegador.imgNave.Location = new Point(ObjNavejuegador.imgNave.Location.X + 5, // Mueve la nave 5 píxeles hacia la derecha
                 ObjNavejuegador.imgNave.Location.Y);
             }
             if (e.KeyCode == Keys.Left) // Si se presiona la tecla de flecha izquierda
@@ -108,13 +114,13 @@ namespace pryJuegos
         {
             if (e.KeyCode == Keys.Up) // Si se presiona la tecla de flecha arriba
             {
-                
+
                 ObjNavejuegador.imgNave.Location = new Point(ObjNavejuegador.imgNave.Location.X,
                                                               ObjNavejuegador.imgNave.Location.Y - 5);//es con el y
             }
-            if (e.KeyCode == Keys.Down) 
+            if (e.KeyCode == Keys.Down)
             {
-               
+
                 ObjNavejuegador.imgNave.Location = new Point(ObjNavejuegador.imgNave.Location.X,
                                                               ObjNavejuegador.imgNave.Location.Y + 5);//es con el y
             }
@@ -123,7 +129,104 @@ namespace pryJuegos
 
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            ClaseNave disparo1  = new ClaseNave();
+            
+            
+            if (pictureBox1.Location.Y > 0)//VERIFICA SI Y ES > 0 
+            {
+               
+           
+                if (pictureBox1.Bounds.IntersectsWith(ObjEnemigo.imgNaveEnemiga.Bounds))//SI EL CHOCA ENTONCES SE BORRA 
+                {
+                    pictureBox1.Dispose();
 
 
+
+
+                }
+                else
+                {
+                    pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y - 15);
+
+
+
+                }
+
+
+            }
+            else
+            {
+                pictureBox1.Dispose();
+            }
+
+        }
+        
+        private void frmJuegos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //ClaseNave disparo1 = new ClaseNave();
+
+            //if (e.KeyChar == (char)Keys.Space) // Si se presiona la tecla de espacio para disparar
+            //{
+            //    // Crear y configurar el PictureBox del disparo
+            //    disparo1.Disparo();
+               
+            //    Controls.Add(disparo1.imgdisparo);
+
+
+
+            //    // Establecer la posición inicial del disparo
+            //    disparo1.imgdisparo.Location = new Point(ObjNavejuegador.imgNave.Location.X + ObjNavejuegador.imgNave.Width / 2 - disparo1.imgdisparo.Width / 2,
+            //                                 ObjNavejuegador.imgNave.Location.Y);
+
+            //    // Agregar el PictureBox del disparo al formulario
+            //    Controls.Add(disparo1.imgdisparo);
+
+            //    // Asignar el PictureBox recién creado a pictureBox1 para que el temporizador pueda manipularlo
+            //    pictureBox1 = disparo1.imgdisparo;
+
+            //    // Iniciar el temporizador si aún no está activo
+            //    if (!timer1.Enabled)
+            //        timer1.Start();
+
+            //}
+
+
+
+
+
+
+
+
+
+            //ESte codigo funciona pa disparar
+            if (e.KeyChar == (char)Keys.Space) // Si se presiona la tecla de espacio para disparar
+            {
+                // Crear y configurar el PictureBox del disparo
+                PictureBox disparo = new PictureBox();
+                disparo.ImageLocation = "https://e7.pngegg.com/pngimages/410/388/png-clipart-light-muzzle-flash-fire-flame-gun-fire-orange-flame-thumbnail.png";
+                disparo.Size = new Size(20, 20); // Establece el tamaño adecuado
+                disparo.SizeMode = PictureBoxSizeMode.StretchImage; // Ajusta la imagen al tamaño del PictureBox
+
+                // Establecer la posición inicial del disparo
+                disparo.Location = new Point(ObjNavejuegador.imgNave.Location.X + ObjNavejuegador.imgNave.Width / 2 - disparo.Width / 2,
+                                             ObjNavejuegador.imgNave.Location.Y);
+
+                // Agregar el PictureBox del disparo al formulario
+                Controls.Add(disparo);
+
+                // Asignar el PictureBox recién creado a pictureBox1 para que el temporizador pueda manipularlo
+                pictureBox1 = disparo;
+
+                // Iniciar el temporizador si aún no está activo
+                if (!timer1.Enabled)
+                    timer1.Start();
+
+            }
+
+
+
+        }
     }
 }
