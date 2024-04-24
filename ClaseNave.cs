@@ -61,6 +61,7 @@ namespace pryJuegos
             imgdisparo.SizeMode = PictureBoxSizeMode.StretchImage; // Ajusta la imagen al tamaño del PictureBox
 
         }
+
     }
 
 }

@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            timer1 = new System.Windows.Forms.Timer(components);
+            temporizadorDisparo = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
-            // timer1
+            // temporizadorDisparo
             // 
-            timer1.Enabled = true;
-            timer1.Tick += timer1_Tick;
+            temporizadorDisparo.Enabled = true;
+            temporizadorDisparo.Tick += timer1_Tick;
             // 
             // timer2
             // 
@@ -62,7 +62,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer temporizadorDisparo;
         private System.Windows.Forms.Timer timer2;
     }
 }
