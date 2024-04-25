@@ -24,6 +24,7 @@ namespace pryJuegos
         ClaseNave ObjEnemigo;
         ClaseNave Disparo;
         PictureBox disparo;
+        bool espacio = false;
 
         Random EnemigosAleatorios = new Random();
         Random PosicionX = new Random();
@@ -92,7 +93,12 @@ namespace pryJuegos
                 ObjNavejuegador.imgNave.Location = new Point(ObjNavejuegador.imgNave.Location.X,
                                                               ObjNavejuegador.imgNave.Location.Y + 5);//es con el y
             }
+            if (e.KeyCode == Keys.Space)
+            {
+                espacio = false;
+                timer2.Stop();
 
+            }
 
 
         }
@@ -133,8 +139,9 @@ namespace pryJuegos
 
         private void frmJuegos_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Space)
+            if (e.KeyChar == (char)Keys.Space && !espacio)
             {
+                espacio = true;
                 disparo = new PictureBox();
                 disparo.ImageLocation = "https://e7.pngegg.com/pngimages/410/388/png-clipart-light-muzzle-flash-fire-flame-gun-fire-orange-flame-thumbnail.png";
                 disparo.Size = new Size(20, 20);
@@ -143,8 +150,9 @@ namespace pryJuegos
                 disparo.Location = new Point(ObjNavejuegador.imgNave.Location.X + ObjNavejuegador.imgNave.Width / 2 - disparo.Width / 2,
                                              ObjNavejuegador.imgNave.Location.Y);
                 Controls.Add(disparo);
+                GenerarNuevoEnemigo();
             }
-
+            
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -188,9 +196,42 @@ namespace pryJuegos
 
                 contador++; // Incrementar el contador para evitar un bucle infinito
 
+
             }
         }
+        private void GenerarNuevoEnemigo()
+        {
+            int codigoEnemigo = EnemigosAleatorios.Next(1000, 3000);
+            int posX = PosicionX.Next(0, 800);
+            int posY = PosicionY.Next(0, 300);
 
+            switch (codigoEnemigo)
+            {
+                case < 2000:
+                    ObjEnemigo.CrearEnemigo();
+                    ObjEnemigo.imgNaveEnemiga.Location = new Point(posX, posY);
+                    Controls.Add(ObjEnemigo.imgNaveEnemiga);
+                    ObjEnemigo.imgNaveEnemiga.Tag = "enemigo";
+                    break;
+                case > 2500:
+                    ObjEnemigo.CrearEnemigo();
+                    ObjEnemigo.imgNaveEnemiga2.Location = new Point(posX, posY);
+                    Controls.Add(ObjEnemigo.imgNaveEnemiga2);
+                    ObjEnemigo.imgNaveEnemiga2.Tag = "enemigo";
+                    break;
+                case > 1000:
+                    ObjEnemigo.CrearEnemigo();
+                    ObjEnemigo.imgNaveEnemiga3.Location = new Point(posX, posY);
+                    Controls.Add(ObjEnemigo.imgNaveEnemiga3);
+                    ObjEnemigo.imgNaveEnemiga3.Tag = "enemigo";
+                    break;
+                default:
+                    break;
+            }
+
+
+
+        }
 
     }
 }
