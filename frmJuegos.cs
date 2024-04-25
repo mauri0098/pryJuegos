@@ -161,7 +161,7 @@ namespace pryJuegos
             int posY = 0;
             int contador = 0;
 
-            while (contador < 1) // cantidad de enemigos que se crean 
+            while (contador < 10) // cantidad de enemigos que se crean 
             {
                 int codigoEnemigo = EnemigosAleatorios.Next(1000, 3000);// Generación de números aleatorios
 
@@ -195,6 +195,42 @@ namespace pryJuegos
                 }
 
                 contador++; // Incrementar el contador para evitar un bucle infinito
+                timer2.Stop();
+
+                if (ObjEnemigo.imgNaveEnemiga.Location == ObjEnemigo.imgNaveEnemiga2.Location)
+                {
+
+                    ObjEnemigo.imgNaveEnemiga.Dispose();
+                    ObjEnemigo.imgNaveEnemiga2.Dispose();
+
+                }
+                if (ObjEnemigo.imgNaveEnemiga.Location == ObjEnemigo.imgNaveEnemiga.Location)
+                {
+                    ObjEnemigo.imgNaveEnemiga.Dispose();
+                }
+                else if (ObjEnemigo.imgNaveEnemiga2.Location == ObjEnemigo.imgNaveEnemiga2.Location)
+                {
+                    ObjEnemigo.imgNaveEnemiga2.Dispose();
+                }
+                else if (ObjEnemigo.imgNaveEnemiga3.Location == ObjEnemigo.imgNaveEnemiga3.Location)
+                {
+                    ObjEnemigo.imgNaveEnemiga3.Dispose();
+                }
+                else if (ObjEnemigo.imgNaveEnemiga2.Location == ObjEnemigo.imgNaveEnemiga3.Location)
+                {
+                    ObjEnemigo.imgNaveEnemiga2.Dispose();
+                    ObjEnemigo.imgNaveEnemiga3.Dispose();
+                }
+                else if (ObjEnemigo.imgNaveEnemiga.Location == ObjEnemigo.imgNaveEnemiga3.Location)
+                {
+                    ObjEnemigo.imgNaveEnemiga.Dispose();
+                    ObjEnemigo.imgNaveEnemiga3.Dispose();
+                }
+                else if (ObjEnemigo.imgNaveEnemiga3.Location == ObjEnemigo.imgNaveEnemiga2.Location)
+                {
+                    ObjEnemigo.imgNaveEnemiga3.Dispose();
+                    ObjEnemigo.imgNaveEnemiga2.Dispose();
+                }
 
 
             }
