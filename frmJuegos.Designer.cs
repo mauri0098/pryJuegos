@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             temporizadorDisparo = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
+            lblPuntos = new Label();
             SuspendLayout();
             // 
             // temporizadorDisparo
@@ -43,12 +44,24 @@
             timer2.Enabled = true;
             timer2.Tick += timer2_Tick;
             // 
+            // lblPuntos
+            // 
+            lblPuntos.AutoSize = true;
+            lblPuntos.ForeColor = Color.White;
+            lblPuntos.Location = new Point(715, 9);
+            lblPuntos.Name = "lblPuntos";
+            lblPuntos.Size = new Size(44, 15);
+            lblPuntos.TabIndex = 1;
+            lblPuntos.Text = "Puntos";
+            lblPuntos.Click += label2_Click;
+            // 
             // frmJuegos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
-            ClientSize = new Size(800, 600);
+            ClientSize = new Size(800, 500);
+            Controls.Add(lblPuntos);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmJuegos";
             StartPosition = FormStartPosition.CenterScreen;
@@ -58,11 +71,14 @@
             KeyPress += frmJuegos_KeyPress;
             KeyUp += frmJuegos_KeyUp;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private System.Windows.Forms.Timer temporizadorDisparo;
         private System.Windows.Forms.Timer timer2;
+        private Label label1;
+        private Label lblPuntos;
     }
 }

@@ -25,8 +25,8 @@ namespace pryJuegos
         ClaseNave Disparo;
         PictureBox disparo;
         bool espacio = false;
-        List <PictureBox> listaDisparos = new List <PictureBox>();   
-
+        List<PictureBox> listaDisparos = new List<PictureBox>();
+        int puntos = 0;
         Random EnemigosAleatorios = new Random();
         Random PosicionX = new Random();
         Random PosicionY = new Random();
@@ -35,7 +35,7 @@ namespace pryJuegos
             ObjNavejuegador = new ClaseNave();//inicializo el objnavejugador 
             ObjNavejuegador.Crearjuegador();//utilizo el metodo 
             Controls.Add(ObjNavejuegador.imgNave);//Agregando la imagen de la nave al formulario
-            ObjNavejuegador.imgNave.Location = new Point(500, 500);//establese los puntos donde esta la nave 
+            ObjNavejuegador.imgNave.Location = new Point(350, 400);//establese los puntos donde esta la nave 
                                                                    //Esto Es De La Nave jugador 
 
 
@@ -130,6 +130,9 @@ namespace pryJuegos
                             // Eliminamos el disparo de la lista de disparos
                             listaDisparos.Remove(disparo);
                             // Salimos del bucle interno
+                            puntos++;
+                            lblPuntos.Text = "Puntos: " + puntos.ToString();
+
                             break;
                         }
                     }
@@ -155,7 +158,7 @@ namespace pryJuegos
         {
             if (e.KeyChar == (char)Keys.Space)
             {
-                
+
                 disparo = new PictureBox();
                 disparo.BackColor = Color.Blue;
                 disparo.Size = new Size(10, 15);
@@ -164,7 +167,7 @@ namespace pryJuegos
                 disparo.Location = new Point(ObjNavejuegador.imgNave.Location.X + ObjNavejuegador.imgNave.Width / 2 - disparo.Width / 2,
                                              ObjNavejuegador.imgNave.Location.Y);
                 Controls.Add(disparo);
-               listaDisparos.Add(disparo);  
+                listaDisparos.Add(disparo);
                 GenerarNuevoEnemigo();
             }
 
@@ -285,6 +288,9 @@ namespace pryJuegos
             }
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
