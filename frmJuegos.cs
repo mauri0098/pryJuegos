@@ -152,30 +152,42 @@ namespace pryJuegos
                 Controls.Add(disparo);
                 GenerarNuevoEnemigo();
             }
-            
+
         }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
+
             int posX = 0;
             int posY = 0;
             int contador = 0;
 
             while (contador < 10) // cantidad de enemigos que se crean 
             {
-                int codigoEnemigo = EnemigosAleatorios.Next(1000, 3000);// Generación de números aleatorios
-
+                // Generar nuevas coordenadas
                 posX = PosicionX.Next(0, 800);
-                posY = PosicionY.Next(0, 300); //la posicion random de donde estan ubicados los enemigos o utilizan para establecer la posición del enemigo en la ventana de juego
+                posY = PosicionY.Next(0, 300);
 
-                switch (codigoEnemigo)//utilizamos a codigoenemigo y preguntamos si el numero random q genere  es mayor a 2000 crea un enenmigo, si es menor crea otro 
+                // Verificar si las coordenadas están demasiado cerca de las naves existentes
+                bool demasiadoCerca = Controls.OfType<PictureBox>().Any(enemigo =>
+                    enemigo.Tag == "enemigo" &&
+                    Math.Abs(posX - enemigo.Location.X) < 100 &&
+                    Math.Abs(posY - enemigo.Location.Y) < 100);
+
+                // Si las coordenadas están demasiado cerca, pasar al siguiente intento
+                if (demasiadoCerca)
                 {
+                    contador++;
+                    continue;
+                }
 
-
+                // Si las coordenadas no están demasiado cerca, crear el nuevo enemigo y salir del bucle
+                switch (EnemigosAleatorios.Next(1000, 3000))
+                {
                     case < 2000:
-                        ObjEnemigo.CrearEnemigo();//creacion de un enemigo 
-                        ObjEnemigo.imgNaveEnemiga.Location = new Point(posX, posY);//estableco la localizacion de la nave 
-                        Controls.Add(ObjEnemigo.imgNaveEnemiga);//pongo la imagen 
+                        ObjEnemigo.CrearEnemigo();
+                        ObjEnemigo.imgNaveEnemiga.Location = new Point(posX, posY);
+                        Controls.Add(ObjEnemigo.imgNaveEnemiga);
                         ObjEnemigo.imgNaveEnemiga.Tag = "enemigo";
                         break;
                     case > 2500:
@@ -195,79 +207,69 @@ namespace pryJuegos
                 }
 
                 contador++; // Incrementar el contador para evitar un bucle infinito
-                timer2.Stop();
-
-                if (ObjEnemigo.imgNaveEnemiga.Location == ObjEnemigo.imgNaveEnemiga2.Location)
-                {
-
-                    ObjEnemigo.imgNaveEnemiga.Dispose();
-                    ObjEnemigo.imgNaveEnemiga2.Dispose();
-
-                }
-                if (ObjEnemigo.imgNaveEnemiga.Location == ObjEnemigo.imgNaveEnemiga.Location)
-                {
-                    ObjEnemigo.imgNaveEnemiga.Dispose();
-                }
-                else if (ObjEnemigo.imgNaveEnemiga2.Location == ObjEnemigo.imgNaveEnemiga2.Location)
-                {
-                    ObjEnemigo.imgNaveEnemiga2.Dispose();
-                }
-                else if (ObjEnemigo.imgNaveEnemiga3.Location == ObjEnemigo.imgNaveEnemiga3.Location)
-                {
-                    ObjEnemigo.imgNaveEnemiga3.Dispose();
-                }
-                else if (ObjEnemigo.imgNaveEnemiga2.Location == ObjEnemigo.imgNaveEnemiga3.Location)
-                {
-                    ObjEnemigo.imgNaveEnemiga2.Dispose();
-                    ObjEnemigo.imgNaveEnemiga3.Dispose();
-                }
-                else if (ObjEnemigo.imgNaveEnemiga.Location == ObjEnemigo.imgNaveEnemiga3.Location)
-                {
-                    ObjEnemigo.imgNaveEnemiga.Dispose();
-                    ObjEnemigo.imgNaveEnemiga3.Dispose();
-                }
-                else if (ObjEnemigo.imgNaveEnemiga3.Location == ObjEnemigo.imgNaveEnemiga2.Location)
-                {
-                    ObjEnemigo.imgNaveEnemiga3.Dispose();
-                    ObjEnemigo.imgNaveEnemiga2.Dispose();
-                }
-
-
             }
+            timer2.Stop();
+
+
+
+
+
         }
         private void GenerarNuevoEnemigo()
         {
-            int codigoEnemigo = EnemigosAleatorios.Next(1000, 3000);
-            int posX = PosicionX.Next(0, 800);
-            int posY = PosicionY.Next(0, 300);
+            int contadorIntentos = 0;
 
-            switch (codigoEnemigo)
+            while (contadorIntentos < 10) // Intentar generar nuevas coordenadas hasta 10 intentos
             {
-                case < 2000:
-                    ObjEnemigo.CrearEnemigo();
-                    ObjEnemigo.imgNaveEnemiga.Location = new Point(posX, posY);
-                    Controls.Add(ObjEnemigo.imgNaveEnemiga);
-                    ObjEnemigo.imgNaveEnemiga.Tag = "enemigo";
-                    break;
-                case > 2500:
-                    ObjEnemigo.CrearEnemigo();
-                    ObjEnemigo.imgNaveEnemiga2.Location = new Point(posX, posY);
-                    Controls.Add(ObjEnemigo.imgNaveEnemiga2);
-                    ObjEnemigo.imgNaveEnemiga2.Tag = "enemigo";
-                    break;
-                case > 1000:
-                    ObjEnemigo.CrearEnemigo();
-                    ObjEnemigo.imgNaveEnemiga3.Location = new Point(posX, posY);
-                    Controls.Add(ObjEnemigo.imgNaveEnemiga3);
-                    ObjEnemigo.imgNaveEnemiga3.Tag = "enemigo";
-                    break;
-                default:
-                    break;
+                // Generar nuevas coordenadas
+                int posX = PosicionX.Next(0, 800);
+                int posY = PosicionY.Next(0, 300);
+
+                // Verificar si las coordenadas están demasiado cerca de las naves existentes
+                bool demasiadoCerca = Controls.OfType<PictureBox>().Any(enemigo =>
+                    enemigo.Tag == "enemigo" &&
+                    Math.Abs(posX - enemigo.Location.X) < 100 &&
+                    Math.Abs(posY - enemigo.Location.Y) < 100);
+
+                // Si las coordenadas están demasiado cerca, pasar al siguiente intento
+                if (demasiadoCerca)
+                {
+                    contadorIntentos++;
+                    continue;
+                }
+
+                // Si las coordenadas no están demasiado cerca, crear el nuevo enemigo y salir del bucle
+                int codigoEnemigo = EnemigosAleatorios.Next(1000, 3000);
+                switch (codigoEnemigo)
+                {
+                    case < 2000:
+                        ObjEnemigo.CrearEnemigo();
+                        ObjEnemigo.imgNaveEnemiga.Location = new Point(posX, posY);
+                        Controls.Add(ObjEnemigo.imgNaveEnemiga);
+                        ObjEnemigo.imgNaveEnemiga.Tag = "enemigo";
+                        break;
+                    case > 2500:
+                        ObjEnemigo.CrearEnemigo();
+                        ObjEnemigo.imgNaveEnemiga2.Location = new Point(posX, posY);
+                        Controls.Add(ObjEnemigo.imgNaveEnemiga2);
+                        ObjEnemigo.imgNaveEnemiga2.Tag = "enemigo";
+                        break;
+                    case > 1000:
+                        ObjEnemigo.CrearEnemigo();
+                        ObjEnemigo.imgNaveEnemiga3.Location = new Point(posX, posY);
+                        Controls.Add(ObjEnemigo.imgNaveEnemiga3);
+                        ObjEnemigo.imgNaveEnemiga3.Tag = "enemigo";
+                        break;
+                    default:
+                        break;
+                }
+
+                // Reiniciar el contador de intentos
+                contadorIntentos = 0;
+                break; // Salir del bucle después de crear un enemigo válido
             }
-
-
-
         }
+
 
     }
 }
