@@ -25,6 +25,7 @@ namespace pryJuegos
         ClaseNave Disparo;
         PictureBox disparo;
         bool espacio = false;
+        List <PictureBox> listaDisparos = new List <PictureBox>();   
 
         Random EnemigosAleatorios = new Random();
         Random PosicionX = new Random();
@@ -105,43 +106,56 @@ namespace pryJuegos
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (disparo != null && disparo.Location.Y > 0)
+            // Iteramos sobre cada disparo en la lista de disparos
+            foreach (PictureBox disparo in listaDisparos.ToList())
             {
-                disparo.Location = new Point(
-                    disparo.Location.X,
-                    disparo.Location.Y - 10);
-
-                // Colisión con los enemigos
-                foreach (Control imagen in Controls)
+                // Verificamos si el disparo no es nulo y si su posición Y es mayor que 0
+                if (disparo != null && disparo.Location.Y > 0)
                 {
-                    if (imagen.Tag == "enemigo")
+                    // Movemos el disparo hacia arriba
+                    disparo.Location = new Point(
+                        disparo.Location.X,
+                        disparo.Location.Y - 10);
+
+                    // Verificamos colisión con los enemigos
+                    foreach (Control enemigo in Controls)
                     {
-                        if (disparo.Bounds.IntersectsWith(imagen.Bounds))
+                        // Si el control es un enemigo y colisiona con el disparo
+                        if (enemigo.Tag == "enemigo" && disparo.Bounds.IntersectsWith(enemigo.Bounds))
                         {
-                            disparo.Dispose();
-                            imagen.Dispose();
-                            // Cambiar la imagen y cara el gif
+                            // Eliminamos el enemigo de la pantalla
+                            Controls.Remove(enemigo);
+                            // Eliminamos el disparo de la pantalla
+                            Controls.Remove(disparo);
+                            // Eliminamos el disparo de la lista de disparos
+                            listaDisparos.Remove(disparo);
+                            // Salimos del bucle interno
+                            break;
                         }
                     }
                 }
-            }
-            else
-            {
-                if (disparo != null)
+                else
                 {
-                    disparo.Dispose();
-                    disparo = null;
+                    // Si el disparo llega al borde superior de la pantalla,
+                    // lo eliminamos de la pantalla
+                    Controls.Remove(disparo);
+                    // Eliminamos el disparo de la lista de disparos
+                    listaDisparos.Remove(disparo);
                 }
             }
+
+
+
+
 
 
         }
 
         private void frmJuegos_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Space && !espacio)
+            if (e.KeyChar == (char)Keys.Space)
             {
-                espacio = true;
+                
                 disparo = new PictureBox();
                 disparo.ImageLocation = "https://e7.pngegg.com/pngimages/410/388/png-clipart-light-muzzle-flash-fire-flame-gun-fire-orange-flame-thumbnail.png";
                 disparo.Size = new Size(20, 20);
@@ -150,6 +164,7 @@ namespace pryJuegos
                 disparo.Location = new Point(ObjNavejuegador.imgNave.Location.X + ObjNavejuegador.imgNave.Width / 2 - disparo.Width / 2,
                                              ObjNavejuegador.imgNave.Location.Y);
                 Controls.Add(disparo);
+               listaDisparos.Add(disparo);  
                 GenerarNuevoEnemigo();
             }
 
