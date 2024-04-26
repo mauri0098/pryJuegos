@@ -157,8 +157,8 @@ namespace pryJuegos
             {
                 
                 disparo = new PictureBox();
-                disparo.ImageLocation = "https://e7.pngegg.com/pngimages/410/388/png-clipart-light-muzzle-flash-fire-flame-gun-fire-orange-flame-thumbnail.png";
-                disparo.Size = new Size(20, 20);
+                disparo.BackColor = Color.Blue;
+                disparo.Size = new Size(10, 15);
                 disparo.SizeMode = PictureBoxSizeMode.StretchImage;
 
                 disparo.Location = new Point(ObjNavejuegador.imgNave.Location.X + ObjNavejuegador.imgNave.Width / 2 - disparo.Width / 2,

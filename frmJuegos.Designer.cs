@@ -48,7 +48,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
-            ClientSize = new Size(700, 700);
+            ClientSize = new Size(800, 600);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmJuegos";
             StartPosition = FormStartPosition.CenterScreen;
