@@ -41,17 +41,17 @@
             txtJugadorr.Location = new Point(209, 37);
             txtJugadorr.Multiline = true;
             txtJugadorr.Name = "txtJugadorr";
-            txtJugadorr.Size = new Size(123, 26);
+            txtJugadorr.Size = new Size(84, 26);
             txtJugadorr.TabIndex = 0;
             // 
             // btnEmpezarJuego
             // 
-            btnEmpezarJuego.BackColor = Color.Transparent;
-            btnEmpezarJuego.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEmpezarJuego.BackColor = Color.WhiteSmoke;
+            btnEmpezarJuego.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnEmpezarJuego.ForeColor = SystemColors.ActiveCaptionText;
-            btnEmpezarJuego.Location = new Point(112, 78);
+            btnEmpezarJuego.Location = new Point(82, 81);
             btnEmpezarJuego.Name = "btnEmpezarJuego";
-            btnEmpezarJuego.Size = new Size(150, 30);
+            btnEmpezarJuego.Size = new Size(211, 44);
             btnEmpezarJuego.TabIndex = 1;
             btnEmpezarJuego.Text = "Empezar Nuevo Juego";
             btnEmpezarJuego.UseVisualStyleBackColor = false;
@@ -71,8 +71,8 @@
             // 
             // btnSalir
             // 
-            btnSalir.BackColor = Color.Transparent;
-            btnSalir.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSalir.BackColor = Color.WhiteSmoke;
+            btnSalir.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnSalir.Location = new Point(318, 182);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(83, 28);

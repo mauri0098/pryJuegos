@@ -157,7 +157,7 @@ namespace pryJuegos
 
         private void frmJuegos_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Space)
+            if (e.KeyChar == (char)Keys.Space )
             {
 
                 disparo = new PictureBox();
@@ -170,6 +170,7 @@ namespace pryJuegos
                 Controls.Add(disparo);
                 listaDisparos.Add(disparo);
                 GenerarNuevoEnemigo();
+                
             }
 
         }
