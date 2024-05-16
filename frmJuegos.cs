@@ -106,24 +106,24 @@ namespace pryJuegos
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            // Iteramos sobre cada disparo en la lista de disparos
+           
             foreach (PictureBox disparo in listaDisparos.ToList())
             {
-                // Verificamos si el disparo no es nulo y si su posición Y es mayor que 0
+                
                 if (disparo != null && disparo.Location.Y > 0)
                 {
-                    // Movemos el disparo hacia arriba
+                    
                     disparo.Location = new Point(
                         disparo.Location.X,
                         disparo.Location.Y - 10);
 
-                    // Verificamos colisión con los enemigos
+                   
                     foreach (Control enemigo in Controls)
                     {
-                        // Si el control es un enemigo y colisiona con el disparo
+                        
                         if (enemigo.Tag == "enemigo" && disparo.Bounds.IntersectsWith(enemigo.Bounds))
                         {
-                            // Eliminamos el enemigo de la pantalla
+                            
                             Controls.Remove(enemigo);
                             // Eliminamos el disparo de la pantalla
                             Controls.Remove(disparo);
@@ -139,10 +139,10 @@ namespace pryJuegos
                 }
                 else
                 {
-                    // Si el disparo llega al borde superior de la pantalla,
-                    // lo eliminamos de la pantalla
+                    
+                    
                     Controls.Remove(disparo);
-                    // Eliminamos el disparo de la lista de disparos
+                    
                     listaDisparos.Remove(disparo);
                 }
             }
@@ -186,13 +186,13 @@ namespace pryJuegos
                 posX = PosicionX.Next(0, 800);
                 posY = PosicionY.Next(0, 300);
 
-                // Verificar si las coordenadas están demasiado cerca de las naves existentes
+                
                 bool demasiadoCerca = Controls.OfType<PictureBox>().Any(enemigo =>
                     enemigo.Tag == "enemigo" &&
                     Math.Abs(posX - enemigo.Location.X) < 100 &&
                     Math.Abs(posY - enemigo.Location.Y) < 100);
 
-                // Si las coordenadas están demasiado cerca, pasar al siguiente intento
+                
                 if (demasiadoCerca)
                 {
                     contador++;
@@ -224,7 +224,7 @@ namespace pryJuegos
                         break;
                 }
 
-                contador++; // Incrementar el contador para evitar un bucle infinito
+                contador++; 
             }
             timer2.Stop();
 
@@ -239,24 +239,24 @@ namespace pryJuegos
 
             while (contadorIntentos < 10) // Intentar generar nuevas coordenadas hasta 10 intentos
             {
-                // Generar nuevas coordenadas
+                
                 int posX = PosicionX.Next(0, 800);
                 int posY = PosicionY.Next(0, 300);
 
-                // Verificar si las coordenadas están demasiado cerca de las naves existentes
+               
                 bool demasiadoCerca = Controls.OfType<PictureBox>().Any(enemigo =>
                     enemigo.Tag == "enemigo" &&
                     Math.Abs(posX - enemigo.Location.X) < 100 &&
                     Math.Abs(posY - enemigo.Location.Y) < 100);
 
-                // Si las coordenadas están demasiado cerca, pasar al siguiente intento
+                
                 if (demasiadoCerca)
                 {
                     contadorIntentos++;
                     continue;
                 }
 
-                // Si las coordenadas no están demasiado cerca, crear el nuevo enemigo y salir del bucle
+                
                 int codigoEnemigo = EnemigosAleatorios.Next(1000, 3000);
                 switch (codigoEnemigo)
                 {
@@ -282,9 +282,9 @@ namespace pryJuegos
                         break;
                 }
 
-                // Reiniciar el contador de intentos
+               
                 contadorIntentos = 0;
-                break; // Salir del bucle después de crear un enemigo válido
+                break; 
             }
         }
 
