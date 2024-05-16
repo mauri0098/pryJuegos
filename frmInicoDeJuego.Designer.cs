@@ -28,45 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtUsuario = new TextBox();
-            btnConfirmar = new Button();
-            txtJugador = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicoDeJuego));
+            txtJugadorr = new TextBox();
+            btnEmpezarJuego = new Button();
+            lblNombredeUsuario = new Label();
+            btnSalir = new Button();
             SuspendLayout();
             // 
-            // txtUsuario
+            // txtJugadorr
             // 
-            txtUsuario.Location = new Point(165, 32);
-            txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(100, 23);
-            txtUsuario.TabIndex = 0;
+            txtJugadorr.BackColor = Color.White;
+            txtJugadorr.Location = new Point(427, 157);
+            txtJugadorr.Multiline = true;
+            txtJugadorr.Name = "txtJugadorr";
+            txtJugadorr.Size = new Size(104, 20);
+            txtJugadorr.TabIndex = 0;
             // 
-            // btnConfirmar
+            // btnEmpezarJuego
             // 
-            btnConfirmar.Location = new Point(44, 92);
-            btnConfirmar.Name = "btnConfirmar";
-            btnConfirmar.Size = new Size(100, 23);
-            btnConfirmar.TabIndex = 1;
-            btnConfirmar.Text = "button1";
-            btnConfirmar.UseVisualStyleBackColor = true;
-            btnConfirmar.Click += btnConfirmar_Click;
+            btnEmpezarJuego.BackColor = Color.White;
+            btnEmpezarJuego.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEmpezarJuego.ForeColor = SystemColors.ActiveCaptionText;
+            btnEmpezarJuego.Location = new Point(112, 197);
+            btnEmpezarJuego.Name = "btnEmpezarJuego";
+            btnEmpezarJuego.Size = new Size(244, 53);
+            btnEmpezarJuego.TabIndex = 1;
+            btnEmpezarJuego.Text = "Empezar Nuevo Juego";
+            btnEmpezarJuego.UseVisualStyleBackColor = false;
+            btnEmpezarJuego.Click += btnConfirmar_Click;
             // 
-            // txtJugador
+            // lblNombredeUsuario
             // 
-            txtJugador.AutoSize = true;
-            txtJugador.Location = new Point(37, 32);
-            txtJugador.Name = "txtJugador";
-            txtJugador.Size = new Size(107, 15);
-            txtJugador.TabIndex = 2;
-            txtJugador.Text = "Ingrese Un jugador";
+            lblNombredeUsuario.AutoSize = true;
+            lblNombredeUsuario.BackColor = Color.Transparent;
+            lblNombredeUsuario.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblNombredeUsuario.ForeColor = Color.WhiteSmoke;
+            lblNombredeUsuario.Location = new Point(112, 147);
+            lblNombredeUsuario.Name = "lblNombredeUsuario";
+            lblNombredeUsuario.Size = new Size(309, 30);
+            lblNombredeUsuario.TabIndex = 2;
+            lblNombredeUsuario.Text = "Ingrese un nombre de usuario";
+            // 
+            // btnSalir
+            // 
+            btnSalir.Location = new Point(570, 467);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(93, 25);
+            btnSalir.TabIndex = 3;
+            btnSalir.Text = "Salir";
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // frmInicoDeJuego
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(764, 496);
-            Controls.Add(txtJugador);
-            Controls.Add(btnConfirmar);
-            Controls.Add(txtUsuario);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(664, 494);
+            Controls.Add(btnSalir);
+            Controls.Add(lblNombredeUsuario);
+            Controls.Add(btnEmpezarJuego);
+            Controls.Add(txtJugadorr);
             Name = "frmInicoDeJuego";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmInicoDeJuego";
@@ -77,8 +99,9 @@
 
         #endregion
 
-        private TextBox txtUsuario;
-        private Button btnConfirmar;
-        private Label txtJugador;
+        private TextBox txtJugadorr;
+        private Button btnEmpezarJuego;
+        private Label lblNombredeUsuario;
+        private Button btnSalir;
     }
 }

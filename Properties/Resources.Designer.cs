@@ -69,5 +69,15 @@ namespace pryJuegos.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _360_F_386827376_uWOOhKGk6A4UVL5imUBt20Bh8cmODqzx {
+            get {
+                object obj = ResourceManager.GetObject("360_F_386827376_uWOOhKGk6A4UVL5imUBt20Bh8cmODqzx", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

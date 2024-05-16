@@ -121,4 +121,7 @@
   <data name="0-F7Qnr7Zs-dobles-s- (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\0-F7Qnr7Zs-dobles-s- (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="360_F_386827376_uWOOhKGk6A4UVL5imUBt20Bh8cmODqzx" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\360_F_386827376_uWOOhKGk6A4UVL5imUBt20Bh8cmODqzx.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
