@@ -79,5 +79,25 @@ namespace pryJuegos.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8ac8d7ea3cc304b0181ff186a88d3691 {
+            get {
+                object obj = ResourceManager.GetObject("8ac8d7ea3cc304b0181ff186a88d3691", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8ac8d7ea3cc304b0181ff186a88d36911 {
+            get {
+                object obj = ResourceManager.GetObject("8ac8d7ea3cc304b0181ff186a88d36911", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
