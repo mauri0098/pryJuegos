@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace pryJuegos
 {
-    public partial class frmInicoDeJuego : Form
+    public partial class frmIniciodeJuego : Form
     {
-        public frmInicoDeJuego()
+        public frmIniciodeJuego()
         {
             InitializeComponent();
         }

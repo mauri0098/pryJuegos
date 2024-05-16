@@ -1,6 +1,6 @@
 ﻿namespace pryJuegos
 {
-    partial class frmInicoDeJuego
+    partial class frmIniciodeJuego
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicoDeJuego));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIniciodeJuego));
             txtJugadorr = new TextBox();
             btnEmpezarJuego = new Button();
             lblNombredeUsuario = new Label();
@@ -82,7 +82,7 @@
             btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
-            // frmInicoDeJuego
+            // frmIniciodeJuego
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -92,9 +92,9 @@
             Controls.Add(lblNombredeUsuario);
             Controls.Add(btnEmpezarJuego);
             Controls.Add(txtJugadorr);
-            Name = "frmInicoDeJuego";
+            Name = "frmIniciodeJuego";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmInicoDeJuego";
+            Text = "Inicio de Juego";
             Load += frmInicoDeJuego_Load;
             ResumeLayout(false);
             PerformLayout();
