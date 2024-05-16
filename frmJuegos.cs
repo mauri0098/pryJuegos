@@ -132,7 +132,7 @@ namespace pryJuegos
                             listaDisparos.Remove(disparo);
                             // Salimos del bucle interno
                             puntos++;
-                            lblPuntos.Text = "Puntos: " + puntos.ToString();
+                            lblScore.Text = "Puntos: " + puntos.ToString();
 
                             break;
                         }
