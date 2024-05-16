@@ -37,6 +37,7 @@
             // temporizadorDisparo
             // 
             temporizadorDisparo.Enabled = true;
+            temporizadorDisparo.Interval = 40;
             temporizadorDisparo.Tick += timer1_Tick;
             // 
             // temporizadorenemigos
