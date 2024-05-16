@@ -48,7 +48,7 @@
             // 
             lblPuntos.AutoSize = true;
             lblPuntos.ForeColor = Color.White;
-            lblPuntos.Location = new Point(715, 9);
+            lblPuntos.Location = new Point(726, 9);
             lblPuntos.Name = "lblPuntos";
             lblPuntos.Size = new Size(47, 15);
             lblPuntos.TabIndex = 1;
