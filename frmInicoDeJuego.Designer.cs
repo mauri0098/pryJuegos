@@ -38,20 +38,21 @@
             // txtJugadorr
             // 
             txtJugadorr.BackColor = Color.White;
-            txtJugadorr.Location = new Point(427, 157);
+            txtJugadorr.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtJugadorr.Location = new Point(310, 51);
             txtJugadorr.Multiline = true;
             txtJugadorr.Name = "txtJugadorr";
-            txtJugadorr.Size = new Size(104, 20);
+            txtJugadorr.Size = new Size(80, 20);
             txtJugadorr.TabIndex = 0;
             // 
             // btnEmpezarJuego
             // 
             btnEmpezarJuego.BackColor = Color.White;
-            btnEmpezarJuego.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEmpezarJuego.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnEmpezarJuego.ForeColor = SystemColors.ActiveCaptionText;
-            btnEmpezarJuego.Location = new Point(112, 197);
+            btnEmpezarJuego.Location = new Point(189, 86);
             btnEmpezarJuego.Name = "btnEmpezarJuego";
-            btnEmpezarJuego.Size = new Size(244, 53);
+            btnEmpezarJuego.Size = new Size(215, 47);
             btnEmpezarJuego.TabIndex = 1;
             btnEmpezarJuego.Text = "Empezar Nuevo Juego";
             btnEmpezarJuego.UseVisualStyleBackColor = false;
@@ -61,22 +62,24 @@
             // 
             lblNombredeUsuario.AutoSize = true;
             lblNombredeUsuario.BackColor = Color.Transparent;
-            lblNombredeUsuario.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblNombredeUsuario.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             lblNombredeUsuario.ForeColor = Color.WhiteSmoke;
-            lblNombredeUsuario.Location = new Point(112, 147);
+            lblNombredeUsuario.Location = new Point(12, 41);
             lblNombredeUsuario.Name = "lblNombredeUsuario";
-            lblNombredeUsuario.Size = new Size(309, 30);
+            lblNombredeUsuario.Size = new Size(292, 30);
             lblNombredeUsuario.TabIndex = 2;
             lblNombredeUsuario.Text = "Ingrese un nombre de usuario";
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(570, 467);
+            btnSalir.BackColor = SystemColors.ControlLightLight;
+            btnSalir.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSalir.Location = new Point(12, 86);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(93, 25);
+            btnSalir.Size = new Size(157, 47);
             btnSalir.TabIndex = 3;
             btnSalir.Text = "Salir";
-            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click;
             // 
             // frmInicoDeJuego
@@ -84,7 +87,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(664, 494);
+            ClientSize = new Size(454, 264);
             Controls.Add(btnSalir);
             Controls.Add(lblNombredeUsuario);
             Controls.Add(btnEmpezarJuego);
