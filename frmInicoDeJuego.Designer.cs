@@ -37,11 +37,10 @@
             // txtJugadorr
             // 
             txtJugadorr.BackColor = Color.White;
-            txtJugadorr.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtJugadorr.Location = new Point(209, 37);
-            txtJugadorr.Multiline = true;
+            txtJugadorr.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            txtJugadorr.Location = new Point(209, 39);
             txtJugadorr.Name = "txtJugadorr";
-            txtJugadorr.Size = new Size(84, 26);
+            txtJugadorr.Size = new Size(84, 23);
             txtJugadorr.TabIndex = 0;
             // 
             // btnEmpezarJuego
