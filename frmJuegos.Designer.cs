@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             temporizadorDisparo = new System.Windows.Forms.Timer(components);
-            timer2 = new System.Windows.Forms.Timer(components);
+            temporizadorenemigos = new System.Windows.Forms.Timer(components);
             lblPuntos = new Label();
             SuspendLayout();
             // 
@@ -39,10 +39,10 @@
             temporizadorDisparo.Enabled = true;
             temporizadorDisparo.Tick += timer1_Tick;
             // 
-            // timer2
+            // temporizadorenemigos
             // 
-            timer2.Enabled = true;
-            timer2.Tick += timer2_Tick;
+            temporizadorenemigos.Enabled = true;
+            temporizadorenemigos.Tick += timer2_Tick;
             // 
             // lblPuntos
             // 
@@ -77,7 +77,7 @@
         #endregion
 
         private System.Windows.Forms.Timer temporizadorDisparo;
-        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer temporizadorenemigos;
         private Label label1;
         private Label lblPuntos;
     }

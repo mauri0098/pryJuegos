@@ -30,6 +30,7 @@ namespace pryJuegos
         Random EnemigosAleatorios = new Random();
         Random PosicionX = new Random();
         Random PosicionY = new Random();
+
         private void frmJuegos_Load(object sender, EventArgs e)
         {
             ObjNavejuegador = new ClaseNave();//inicializo el objnavejugador 
@@ -97,7 +98,7 @@ namespace pryJuegos
             if (e.KeyCode == Keys.Space)
             {
                 espacio = false;
-                timer2.Stop();
+                temporizadorenemigos.Stop();
 
             }
 
@@ -226,7 +227,7 @@ namespace pryJuegos
 
                 contador++; 
             }
-            timer2.Stop();
+            temporizadorenemigos.Stop();
 
 
 
